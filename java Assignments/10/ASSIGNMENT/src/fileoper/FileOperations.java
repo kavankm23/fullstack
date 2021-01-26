@@ -9,9 +9,9 @@ import java.io.*;
 public class FileOperations {
 	public static void main(String[] args) throws Exception{
 		
-		// Convert all file information in lower case in target file 
-		FileReader fr = new FileReader("C:\\Users\\YASHWANTH\\Desktop\\Zensar\\Zensar Java FS Training\\Java\\JAVA ASSIGNMENTS\\File10.txt");
-		FileWriter fw = new FileWriter("C:\\Users\\YASHWANTH\\Desktop\\Zensar\\Zensar Java FS Training\\Java\\JAVA ASSIGNMENTS\\LowerCase.txt");
+		
+		FileReader fr = new FileReader("D:\kavan\work\assignment-files\fullstack\java Assignments\Assignment 10\\File.txt");
+		FileWriter fw = new FileWriter("D:\kavan\work\assignment-files\fullstack\java Assignments\Assignment 10\\LowerCase.txt");
 		int ch;
 		while((ch=fr.read()) != -1) {	
 			 if (Character.isUpperCase(ch))
@@ -25,9 +25,9 @@ public class FileOperations {
 		System.out.println("Input file data converted to Lower Case in target file");
 		
 		
-		// Convert all file information in upper case in target file. 
-		FileReader fr1 = new FileReader("C:\\Users\\YASHWANTH\\Desktop\\Zensar\\Zensar Java FS Training\\Java\\JAVA ASSIGNMENTS\\File10.txt");
-		FileWriter fw1 = new FileWriter("C:\\Users\\YASHWANTH\\Desktop\\Zensar\\Zensar Java FS Training\\Java\\JAVA ASSIGNMENTS\\UpperCase.txt");
+		
+		FileReader fr1 = new FileReader("D:\kavan\work\assignment-files\fullstack\java Assignments\Assignment 10\\File.txt");
+		FileWriter fw1 = new FileWriter("D:\kavan\work\assignment-files\fullstack\java Assignments\Assignment 10\UpperCase.txt");
 		int ch1;
 		while((ch1=fr1.read()) != -1) {	
 			 if (Character.isLowerCase(ch1))
@@ -41,9 +41,9 @@ public class FileOperations {
 		System.out.println("Input file data converted to Upper Case in target file");
 		
 		
-		// Convert all sentence first letter in upper case.
-		FileReader fr2 = new FileReader("C:\\Users\\YASHWANTH\\Desktop\\Zensar\\Zensar Java FS Training\\Java\\JAVA ASSIGNMENTS\\File10.txt");
-		FileWriter fw2 = new FileWriter("C:\\Users\\YASHWANTH\\Desktop\\Zensar\\Zensar Java FS Training\\Java\\JAVA ASSIGNMENTS\\FirstLetterUpper.txt");
+		
+		FileReader fr2 = new FileReader("D:\kavan\work\assignment-files\fullstack\java Assignments\Assignment 10\\File.txt");
+		FileWriter fw2 = new FileWriter("D:\kavan\work\assignment-files\fullstack\java Assignments\Assignment 10\\FirstLetterUpper.txt");
 		BufferedReader br2 = new BufferedReader(fr2);
 		
 		String line = null;
@@ -60,8 +60,8 @@ public class FileOperations {
 		    fr2.close();
 	
 		    
-		// Display number of character present in file. 
-		FileReader fr3 = new FileReader("C:\\Users\\YASHWANTH\\Desktop\\Zensar\\Zensar Java FS Training\\Java\\JAVA ASSIGNMENTS\\File10.txt");
+		
+		FileReader fr3 = new FileReader("D:\kavan\work\assignment-files\fullstack\java Assignments\Assignment 10\\File.txt");
 		BufferedReader br3 = new BufferedReader(fr3);
 		String line1;
 		int count=0;
@@ -75,8 +75,8 @@ public class FileOperations {
 		System.out.println("Number of characters present in file = "+count);
 		
 		
-		// Display number of words present in file.
-		FileReader fr4 = new FileReader("C:\\Users\\YASHWANTH\\Desktop\\Zensar\\Zensar Java FS Training\\Java\\JAVA ASSIGNMENTS\\File10.txt");
+		
+		FileReader fr4 = new FileReader("D:\kavan\work\assignment-files\fullstack\java Assignments\Assignment 10\\File.txt");
 		BufferedReader br4 = new BufferedReader(fr4);
 		String line2;
 		int count1=0;

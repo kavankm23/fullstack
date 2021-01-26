@@ -7,10 +7,10 @@ public class SortName
    public static void main(String[] args) 
    {
       String[] names = new String[4];
-      names[0] = "RAJ";
-      names[1] = "ravi";
-      names[2] = "AkaSh";
-      names[3] = "Ajay";
+      names[0] = "KAVAN";
+      names[1] = "RAVAN";
+      names[2] = "HOLMES";
+      names[3] = "STEVE";
       
       Arrays.sort(names);
       Arrays.sort(names, String.CASE_INSENSITIVE_ORDER);
@@ -25,7 +25,7 @@ public class SortName
    }
 } 
 
-or
+
 
 /* package com;
 

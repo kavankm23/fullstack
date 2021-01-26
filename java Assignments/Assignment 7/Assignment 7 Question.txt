@@ -1,9 +1,0 @@
-Assignment 7 : 
-
-Take n number of names through keywords and display those names in ascending or descending order. (Ignore case sensitive). 
-String names[]={“Raj”,”ravi”,”Akash”,”ajay”};
-
-		Akash, ajay, Raj, ravi 		Asc 
-		ravi, Raj, ajay, Akash		Desc 
-
-Hint : compareTo() methods or any other ways. 
