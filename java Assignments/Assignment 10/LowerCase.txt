@@ -1,0 +1,3 @@
+an adapter pattern says that just converts the interface of a class into another interface that a client wants
+
+in other words to provide the interface according to client requirement while using the services of a class with a different interface

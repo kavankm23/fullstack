@@ -1,0 +1,39 @@
+Assignment 5:
+
+Create Student class which contains sId,SName,Age,Marks[](PCMB) ,Grade(char)
+Scanner obj 
+read()		
+			take
+			id
+			name,
+			age
+				for(i=0;iM<marks.length;i++) {
+					marks[i]=obj.next()
+}	
+calculateGrade()
+			local variable total,avg;
+				avg> 90	A+
+				avg>80	A
+				avg>70	B
+				avg>55	C
+				else
+						D
+			
+display
+		id,name,age,Grade
+
+StudentTest 
+		Create Student array object 
+		How many student details do you want to store.
+		
+		Student std[]=new Students[n];
+		for(int i=0;i<n;i++) {
+			std[i]=new Student();
+			std[i].read();
+}
+		for(int i=0;i<i++){
+			std[i].calculateGrade();
+}
+		for(int i=0;i<i++){
+			std[i].display();
+}

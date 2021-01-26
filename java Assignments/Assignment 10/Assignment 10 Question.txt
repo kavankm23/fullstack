@@ -1,0 +1,9 @@
+Assignment 10:
+
+File Assignment 
+
+1.	Convert all file information in upper case in target file. 
+2.	Convert all file information in lower case in target file 
+3.	Convert all sentence first letter in upper case. 
+4.	Display number of character present in file. 
+5.	Display number of words present in file.

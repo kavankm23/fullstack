@@ -1,0 +1,267 @@
+
+11/01/2021
+
+Select Clause with Where clause
+
+1) Display details of jobs where the minimum salary is greater than 10000.
+
+Ans Select * from jobs where min_salary > 10000;
+
+2) Display the first name and join date of the employees who joined between 2002 and 2005.
+
+Ans Select first_name,hire_date from employees where year(hire_date) between 2002 and 2005;
+
+3) Display first name and join date of the employees who is either IT Programmer or Sales Man.
+
+Ans Select first_name,hire_date from employees where job_id in ('IT_PROG', 'SA_MAN');
+
+4) Display first name, salary, commission pct, and hire date for employees with salary less than 10000.
+
+Ans Select first_name,salary,commission_pct,hire_date from employees where salary < 10000;
+
+
+5) Display job Title, the difference between minimum and maximum salaries for jobs with max salary in the range 10000 to 20000.
+
+Ans Select job_title,max_salary - min_salary difference from jobs where max_salary between 10000 and 20000;
+
+6) Display employees where the first name or last name starts with S.
+
+Ans Select first_name,last_name from employees where first_name Like 'S%' or last_name like 'S%';
+
+7) Display details of jobs in the descending order of the title.
+
+Ans Select * from jobs order by job_title desc;
+
+8) Display employees who joined in the month of May.
+
+Ans Select * from employees where month(hire_date) = '05';
+
+9) Display details of the employees where commission percentage is null and salary in the range 5000 to 10000 and department is 30.
+
+Ans select * from employees where commission_pct is null and salary between 5000 and 10000 and department_id = 30;
+
+Join
+
+1). Display job title, employee ID, number of days between ending date and starting date for all jobs in department 30 from job history.
+
+Ans Select employee_id,job_title,end_date-start_date days from job_history natural join jobs where department_id=90;
+
+2) Display department name and manager first name.
+
+Ans Select d.department_id, d.department_name, d.manager_id, e.first_name from departments d inner join employees e on (d.manager_id = e.employee_id);
+
+3) Display department name, manager name, and city.
+
+Ans Select d.department_name, e.first_name, l.city from departments d join employees e on (d.manager_id = e.employee_id) join locations l using (location_id);
+
+4) Display country name, city, and department name.
+
+Ans Select country_name,city, department_name from countries join locations using (country_id) join departments USING (location_id);
+
+5) Display employee name and country in which he is working.
+
+Ans Select concat(first_name,' ',last_name) as Employee_name,employee_id, country_name from employees join departments using(department_id) join locations using( location_id) join countries using ( country_id);
+
+
+Functions
+
+1. Display employees who joined in the month of May.
+
+Select * from employees where month(hire_date) = '05';
+
+2. Display first name, salary, and round the salary to thousands.
+
+Select first_name,salary,round(salary, -3) from employees;
+
+3. Display first name and date of first salary of the employees.
+
+select first_name,hire_date from employees;
+
+4. Display first name and experience of the employees.
+
+SELECT FIRST_NAME, SYSDATE(), HIRE_DATE, DATEDIFF( SYSDATE(), hire_date )/365
+  FROM employees;
+
+5. Display the length of first name for employees where last name contain character ‘b’ after 3rd position.
+
+Select first_name,last_name FROM employees where INSTR(last_name,'b') > 3;
+
+6. Display first name in upper case and email address in lower case for employees where the first name and email address are same irrespective of the case.
+
+Select upper(first_name),lower(email) from employees where upper(first_name) = lower(email);
+
+7. Display employees who joined in the 1996.
+
+Select * from employees where year(hire_date) = "1996";
+
+8. Display the number of days between system date and 1st January 1995.
+
+Select sysdate - to-date('01-jan-1995') from employees;
+
+9. Display how many employees joined in each month of the current year.
+
+Select month(hire_date),count(*) from employees where month(hire_date) = month(sysdate);
+
+MySQL Aggregate function
+
+1. Display employee ID and the date on which he ended his previous job.
+
+Select employee_id,max(end_date) from job_history group by employee_id;
+
+2. Display number of employees joined after 15th of the month.
+
+Select count(*) from employees where month(hire_date) > 15;
+
+select with Group by
+
+3. Display the country ID and number of cities we have in the country.
+
+Select country_id,count(*) from locations group by country_id;
+
+4. Display average salary of employees in each department who have commission percentage.
+
+Select department_id,avg(salary) from employees where commission_pct is not null group by department_id;
+
+5. Display job ID, number of employees, sum of salary, and difference between highest salary and lowest salary of the employees of the job.
+
+Selct job_id,count(*),sum(salary),max(salary)-min(salary) salary from employees group by job_id;
+
+6. Display job ID for jobs with average salary more than 10000.
+
+Select job_id,avg(salary) from employees group by job_id having avg(salary)>10000;
+
+7. Display years in which more than 10 employees joined.
+
+Select year(hire_date) from employees group by year(hire_date) having count(employee_id) > 10;
+
+8. Display departments in which more than five employees have commission percentage.
+
+Select department_id from employees where commission_pct is not null group by department_id having count(commission_pct)>5;
+
+9. Display department name and number of employees in the department.
+
+Ans->Select department_name,count(*) from employees group by department_id;
+
+10. Display employee ID for employees who did more than one job in the past.
+
+Ans->Select employee_id from job_history group by employee_id havong count(*)>1;
+
+
+
+
+
+
+
+12/01/2021
+
+DML Operation
+
+1. Change salary of employee 115 to 8000 if the existing salary is less than 6000.
+
+Ans->UPDATE EMPLOYEES SET SALARY = 8000 WHERE EMPLOYEE_ID = 115 AND SALARY < 6000;
+
+2. Insert a new employee into employees with all the required details.
+
+Ans->INSERT INTO EMPLOYEES  (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE,JOB_ID, SALARY, DEPARTMENT_ID) VALUES (208, 'ABHI', 'SNYDER','ANGELA','215 253 4737', SYSDATE, 'SA_MAN', 12000, 80);
+
+3. Delete department 20.
+
+Ans->DELETE FROM DEPARTMENTS WHERE DEPARTMENT_ID=20;
+
+4. Change job ID of employee 110 to IT_PROG if the employee belongs to department 10 and the existing job ID does not start with IT.
+
+Ans->UPDATE EMPLOYEES SET JOB_ID= 'IT_PROG' WHERE EMPLOYEE_ID=110 AND DEPARTMENT_ID=10 AND NOT JOB_ID LIKE 'IT%';
+
+5. Insert a row into departments table with manager ID 120 and location ID in any location ID for city Tokyo.
+
+Ans->INSERT INTO DEPARTMENTS (150,'SPORTS',120,1200);
+
+6. Display job title, employee ID, number of days between ending date and starting date for all jobs in department 30 from job history.
+
+Ans->SELECT EMPLOYEE_ID, JOB_TITLE, END_DATE-START_DATE DAYS FROM JOB_HISTORY NATURAL JOIN JOBS WHERE DEPARTMENT_ID=30;
+
+
+DDL Assignments  with Constraints
+
+Table ---> Customer
+custId, firstName,lastName,age,city, mobileNumber, dob
+Add the Constraints
+custId is Primary Key
+firstName not null
+age must be greater than 21
+mobile must be unique  
+
+create table Customer(custid int,firstName varchar(20) not null,lastName varchar(20),age int,city varchar(20),mobileNumber int,dob date,constraint c_pk primary key(custid),constraint a_pk check(age>21),constraint p_pk unique(mobileNumber));
+
+Table ----> Branch
+branchId, branchName, city
+Add the Constraints
+branchId is Primary Key
+branchName not null
+city not null
+
+create table Branch(branchId int,branchName varchar(20) not null,city varchar(20) not null,constraint b_pk primary key(branchId));
+
+Table -----> Account
+accountNumber, openingBalance, typeOfAccount, status,BankId,CustId
+Add the Constraints
+accountNumber is primary key
+openingBalance must be greater than 5000
+typeOfAccount must be saving/current
+BankId is foreign key refer to BranchId(Primary key) Branch table
+CustId is foreign key refer to Customer(Primary key) Customer table
+
+Create table Account(accountNumber varchar(20),openingBalance int,typeOfAccount enum('savings','current'),status varchar(20),bankid int,constraint a_pk primary key(accountNumber),constraint ob_pk check(openingBalance>5000),constraint bi_pk foreign key(bankid) references Branch(branchId));
+
+Table ----> Transaction
+transactionId, transactionDate, MediumOfTransaction, TransactionAmount
+Add the Constraints
+transactionId is primary key
+
+create table Transaction (transactionId int,transactionDate date,MediumOfTransaction varchar(20),TransactionAmount int,constraint ti_pk primary key(transactionId));
+
+Table ----> Loan
+LoanId, loanAmount, customerId and bankdId
+Add the Constraints
+loadId is primary key
+loanAmount must be +ve
+BankId is foreign key refer to BranchId(Primary key) Branch table
+
+Create table Loan(LoanId int,loanAmount int,customerId int,bankid int,constraint li_pk primary key(LoanId),constraint la_pk check(loanAmount>=0),constraint bi_pk foreign key(bankid) references Branch(branchId));
+
+
+Sub Query
+
+1. Display details of departments managed by ‘John’.
+
+Ans->SELECT * FROM DEPARTMENTS WHERE MANAGER_ID IN (SELECT EMPLOYEE_ID FROM EMPLOYEES WHERE FIRST_NAME='JOHN');
+
+2. Display employees who did not do any job in the past.
+
+Ans->SELECT * FROM EMPLOYEES WHERE EMPLOYEE_ID NOT IN (SELECT EMPLOYEE_ID FROM JOB_HISTORY);
+
+3. Display job title and average salary for employees who did a job in the past.
+
+Ans->SELECT JOB_TITLE, AVG(SALARY) FROM JOBS NATURAL JOIN EMPLOYEES GROUP BY JOB_TITLE WHERE EMPLOYEE_ID IN (SELECT EMPLOYEE_ID FROM JOB_HISTORY);
+
+4. Display country name, city, and number of departments where department has more than 5 employees.
+
+Ans->SELECT COUNTRY_NAME, CITY, COUNT(DEPARTMENT_ID)FROM COUNTRIES JOIN LOCATIONS USING (COUNTRY_ID) JOIN DEPARTMENTS USING (LOCATION_ID) WHERE DEPARTMENT_ID IN (SELECT DEPARTMENT_ID FROM EMPLOYEES GROUP BY DEPARTMENT_ID HAVING COUNT(DEPARTMENT_ID)>5) GROUP BY COUNTRY_NAME, CITY;
+
+5. Display details of manager who manages more than 5 employees.
+
+Ans->SELECT FIRST_NAME FROM EMPLOYEES WHERE EMPLOYEE_ID IN (SELECT MANAGER_ID FROM EMPLOYEES GROUP BY MANAGER_ID HAVING COUNT(*)>5);
+
+6. Display details of current job for employees who worked as IT Programmers in the past.
+
+Ans->SELECT * FROM JOBS WHERE JOB_ID IN (SELECT JOB_ID FROM EMPLOYEES WHERE EMPLOYEE_ID IN (SELECT EMPLOYEE_ID FROM JOB_HISTORY WHERE JOB_ID='IT_PROG'));
+
+7. Display the details of employees drawing the highest salary in the department.
+
+Ans->SELECT DEPARTMENT_ID,FIRST_NAME, SALARY FROM EMPLOYEES OUTER WHERE SALARY = (SELECT MAX(SALARY) FROM EMPLOYEES WHERE DEPARTMENT_ID = OUTER.DEPARTMENT_ID);
+
+8. Display third highest salary of all employees
+
+Ans->SELECT EMPLOYEES MAIN WHERE 2 = (SELECT COUNT(DISTINCT SALARY) FROM EMPLOYEES WHERE SALARY > MAIN.SALARY);
+
+	 

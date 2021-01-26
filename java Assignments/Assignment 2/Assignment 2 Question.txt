@@ -1,0 +1,19 @@
+Assignment 2
+
+Take n number records through keyboards as Id,Name,Salary,Desg using array
+ (id using array, name using array, salary using array, Desg using array).
+
+Salary = salary + hra + da – pf;
+	Hra is 10% salary (salary*.10)
+	Da is 7 % salary (salary*.07)
+	Pf 5 % salary (salary*.05)
+
+If desg is manager 				desg.equals(“Developer”)
+		15% bonus
+
+If desg is developer  10% bonus 
+Else 
+		5 % bonus 
+
+
+Print (Id, name, salary (grossSalary + bonus ) and desg)

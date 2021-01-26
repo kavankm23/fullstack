@@ -1,0 +1,60 @@
+Assignment 4 
+
+Manager / Programmer is a Employee
+
+Employee has a Address 
+
+class Employee {			super class must be generic 
+	id,name,salary
+	Scanner obj = new Scanner(System.in);
+	Address add = new Address();
+	methods
+	read()		id,name,salary
+
+, calSalary()			: hra, da and pf 
+dislay()
+}
+
+
+class Manager extends Employee {	sub must be specific 
+	numberOfEmp  : numbers 
+	readMgr()		numberOfEmp
+			add.readAdd();
+	disMgr();
+			numberOfEmp
+				add.disAdd();
+}
+	class Programmer extends Employee{	sub must be specific 
+		projectName:	string 
+		readPrg()
+				projectName
+				add.readAdd();
+		disPrg();
+}
+	
+class Address {
+			city, state, pinCode
+			Scanner obj = new Scanner();
+			readAdd()
+					readcity,state and pincode
+			disAdd();
+					city, state and pincode
+}
+	
+	EmployeeTest
+			Main 			Don’t create the Employee class object.
+	S.O.P(ManagerDetails);
+Manager mgr
+		mgr.read()		3 details 
+		mgr.readMgr()	1 own details, 3 address details 
+		
+S.O.P(ProgramerDetails)
+Programmer prg
+		prg.read()
+		prg.readPrg()
+		
+	mgr.calSalary();
+	prg.calSalary()
+
+
+	Display Manager and Programmer details. 
