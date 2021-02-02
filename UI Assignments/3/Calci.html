@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">  
+        function getadd(){  
+        var first_number = eval(document.getElementById("number").value);
+        var second_number = eval(document.getElementById("number1").value);
+        var result = document.getElementById("result1")  
+        result.value = first_number + second_number;
+    }
+    function getsub(){  
+        var first_number = eval(document.getElementById("number").value);
+        var second_number = eval(document.getElementById("number1").value);  
+        var result = document.getElementById("result1")  
+        result.value = first_number - second_number;
+    }  
+    </script>  
+</head>
+<body>
+    <form>  
+        Enter Input 1:<input type="text" id="number" name="number"/><br/>
+        Enter Input 2:<input type="text" id="number1" name="number1"/><br/>
+        Result :<input type="text" id="result1" name="result1"><br>
+        <input type="button" value="add" onclick="getadd()"/>  
+        <input type="button" value="sub" onclick="getsub()"/>  
+        </form>  
+</body>
+</html>

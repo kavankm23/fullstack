@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/JavaScript">
+
+    </script>
+</head>
+<body>
+    <script type="text/JavaScript">
+    do {
+        var number = prompt('1 : Add 2 : Sub');
+        var num1 = prompt("Enter the Num 1 ")
+        var num2 = prompt("Enter the Num 2 ")
+        var add,sub;
+        switch(number) {
+            case 1:
+                    add = eval(num1) + eval(num2);
+                    alert("Addition of 2 Numbers is "+add);
+                    break;
+
+            case 2:
+                    sub = eval(num1) - eval(num2);
+                    alert("Subtraction of 2 Numbers is "+sub);
+                    break;
+
+            default :
+                    alert("Empty");
+                    break;
+        }
+    }while(true);
+    </script>
+</body>
+</html>
