@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/JavaScript">
+        function BackGround()
+        {
+            setInterval('document.getElementById("bg").src="bcg.jpg"',9000);
+        }
+        function BackGroundOne()
+        {
+            setInterval('document.getElementById("bg").src="bcgA.jpg"',6000);
+        }
+        function BackGroundTwo()
+        {
+            setInterval('document.getElementById("bg").src="bcgB.jpg"',3000);
+        }
+    </script>
+</head>
+
+<body>
+       <img id="bg" src="bcg.jpg" width="1340"  height="620" onmouseout="BackGround()" onmousemove="BackGroundOne()" onmouseover="BackGroundTwo()" />
+</body>
+</html>

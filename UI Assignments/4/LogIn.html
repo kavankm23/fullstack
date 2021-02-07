@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogIn Page</title>
+    <style>
+        
+       div{
+           border: 2px solid black;
+           width: 300px;
+           padding: 20px;
+           position: absolute;
+           top: 25%;
+           left: 37%;
+       }
+        h1{
+         color:rgb(44, 21, 21);
+         text-align: center;
+        }
+   </style>
+</head>
+<body>
+    <div class="login">    
+        <form id="login" method="POST" action="">    
+            <h2>Login Page</h2><br>   
+            <label><b>User Name :</b></label>    
+            <input type="text" name="Uname" id="Uname" placeholder="Username" pattern="[a-z]{1,15}" title="Username must be in lowercase letters" required>    
+            <br>   
+            
+            <label><b>Password :</b></label>    
+            <input type="Password" name="Pass" id="Pass" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="It must contain at least one number, one uppercase letter, one lowercase letter and at least 8 or more characters" required>    
+            <br>  
+            
+            <label><b>Login As :</b></label>
+            <input type="radio" name="login" id="customer" value="customer">Customer
+            <input type="radio" name="login" id="sperson" value="sperson">SalesPerson
+            <br>
+    
+            
+            <button type="submit" class="button">Submit</button>
+    
+            <button type="reset" class="button">Reset</button>       
+            <br>    
+    
+            <a href="CustomerSignup.html">Sign Up Here</a>
+        </form>
+    </div>
+</body>
+</html>
